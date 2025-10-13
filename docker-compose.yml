@@ -1,0 +1,110 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: sigct_postgres
+    environment:
+      POSTGRES_DB: ${DB_NAME:-sigct_db}
+      POSTGRES_USER: ${DB_USER:-sigct_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sigct_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sigct_network
+
+  influxdb:
+    image: influxdb:2.7-alpine
+    container_name: sigct_influxdb
+    environment:
+      INFLUXDB_DB: ${INFLUX_BUCKET:-sigct_iot}
+      INFLUXDB_ADMIN_USER: admin
+      INFLUXDB_ADMIN_PASSWORD: ${INFLUX_TOKEN:-changeme}
+    volumes:
+      - influx_data:/var/lib/influxdb2
+    ports:
+      - "8086:8086"
+    networks:
+      - sigct_network
+
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: sigct_mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_logs:/mosquitto/log
+    networks:
+      - sigct_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: sigct_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - sigct_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sigct_backend
+    environment:
+      DEBUG: "${DEBUG:-False}"
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
+      INFLUX_URL: http://influxdb:8086
+      MQTT_BROKER: mosquitto
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    volumes:
+      - ./backend:/app
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+    networks:
+      - sigct_network
+    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000 --workers 3
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sigct_frontend
+    ports:
+      - "3000:80"
+    environment:
+      VITE_API_URL: http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - sigct_network
+
+volumes:
+  postgres_data:
+  influx_data:
+  mosquitto_data:
+  mosquitto_logs:
+  redis_data:
+  static_volume:
+  media_volume:
+
+networks:
+  sigct_network:
+    driver: bridge
