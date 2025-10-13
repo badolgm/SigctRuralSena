@@ -4,8 +4,13 @@ djangorestframework==3.14.0
 django-cors-headers==4.3.0
 django-filter==23.3
 
-# Database
+# Database (CRÍTICO para Render)
 psycopg2-binary==2.9.9
+dj-database-url==2.1.0
+
+# Production Server (CRÍTICO para Render)
+gunicorn==21.2.0
+whitenoise==6.6.0
 
 # IoT & Time Series
 influxdb-client==1.18.0
@@ -19,7 +24,7 @@ tensorflow-lite==2.13.0
 
 # Image Processing
 Pillow==10.0.0
-opencv-python==4.8.1.78
+opencv-python-headless==4.8.1.78
 
 # Security
 cryptography==41.0.4
@@ -27,8 +32,6 @@ PyJWT==2.8.1
 
 # Utils
 python-dotenv==1.0.0
-gunicorn==21.2.0
-whitenoise==6.6.0
 redis==5.0.0
 
 # Testing
