@@ -136,3 +136,4 @@ MIT Adaptada - Ver [LICENSE](LICENSE)
 ---
 
 **Hecho con ❤️ para zonas rurales de Colombia** 🇨🇴
+# Actualizado
