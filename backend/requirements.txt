@@ -20,7 +20,7 @@ paho-mqtt==1.6.1
 numpy==1.24.3
 scikit-learn==1.3.2
 statsmodels==0.14.0
-tensorflow-lite==2.13.0
+tflite-runtime==2.13.0
 
 # Image Processing
 Pillow==10.0.0
