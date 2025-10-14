@@ -1,39 +1,8 @@
-# Core Django
 Django==4.2.7
 djangorestframework==3.14.0
 django-cors-headers==4.3.0
-django-filter==23.3
-
-# Database (CRÍTICO para Render)
 psycopg2-binary==2.9.9
 dj-database-url==2.1.0
-
-# Production Server (CRÍTICO para Render)
 gunicorn==21.2.0
 whitenoise==6.6.0
-
-# IoT & Time Series
-influxdb-client==1.18.0
-paho-mqtt==1.6.1
-
-# Machine Learning
-numpy==1.24.3
-scikit-learn==1.3.2
-statsmodels==0.14.0
-tflite-runtime==2.13.0
-
-# Image Processing
-Pillow==10.0.0
-opencv-python-headless==4.8.1.78
-
-# Security
-cryptography==41.0.4
-PyJWT==2.8.1
-
-# Utils
 python-dotenv==1.0.0
-redis==5.0.0
-
-# Testing
-pytest==7.4.3
-pytest-django==4.5.2
