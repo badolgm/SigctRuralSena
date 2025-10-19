@@ -1,0 +1,46 @@
+/* frontend/src/pages/LaboratorioCuantico.css */
+
+/* Define el fondo del Laboratorio (Estética Dark/Tech) */
+.quantum-body {
+    font-family: 'Rajdhani', sans-serif; /* Consistencia con advanced_math_labv2.html */
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 50%, #2d1b69 100%);
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+}
+
+/* Contenedor principal para centrar el contenido */
+.lab-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.2);
+}
+
+/* Títulos con efecto de brillo */
+.lab-title {
+    font-family: 'Orbitron', monospace; 
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00ffff;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+/* Estilos de botones de interacción */
+.submit-button {
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.submit-button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
