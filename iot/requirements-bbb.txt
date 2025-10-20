@@ -1,0 +1,12 @@
+# iot/requirements-bbb.txt - Dependencias para BeagleBone Black (IoT/Edge Computing)
+
+# Sensores y Conectividad
+paho-mqtt==1.6.1
+python-dhtsensor  # Ejemplo, si usa una librería GPIO para el DHT22
+
+# Dependencias ML y Procesamiento (Para correr el ML en el Edge)
+numpy==1.24.3
+statsmodels==0.14.0
+tensorflow-lite==2.13.0
+Pillow==10.0.0
+opencv-python-headless==4.8.1.78
