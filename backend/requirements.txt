@@ -4,9 +4,12 @@ djangorestframework==3.14.0
 django-cors-headers==4.3.0
 django-filter==23.3
 
-# Database (CRÍTICO para Render)
+# Database (CRÍTICO-PostgreSQL para Render)
 psycopg2-binary==2.9.9
 dj-database-url==2.1.0
+
+# Documentación y Estructura
+drf-spectacular==0.26.5
 
 # Production Server (CRÍTICO para Render)
 gunicorn==21.2.0
@@ -32,6 +35,7 @@ PyJWT==2.8.1
 
 # Utils
 python-dotenv==1.0.0
+influxdb-client==1.18.0
 redis==5.0.0
 
 # Testing
