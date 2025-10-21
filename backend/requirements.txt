@@ -1,43 +1,57 @@
+# ==========================================
+# SIGCT-RURAL Backend Requirements
+# Optimizado para Render.com
+# ==========================================
+
 # Core Django
 Django==4.2.7
 djangorestframework==3.14.0
 django-cors-headers==4.3.0
 django-filter==23.3
 
-# Database (CRÍTICO-PostgreSQL para Render)
+# Database (PostgreSQL para Render)
 psycopg2-binary==2.9.9
 dj-database-url==2.1.0
 
-# Documentación y Estructura
+# API Documentation
 drf-spectacular==0.26.5
 
 # Production Server (CRÍTICO para Render)
 gunicorn==21.2.0
 whitenoise==6.6.0
 
+# Environment Variables
+python-dotenv==1.0.0
+python-decouple==3.8
+
 # IoT & Time Series
 influxdb-client==1.18.0
 paho-mqtt==1.6.1
+redis==5.0.0
 
-# Machine Learning
+# Machine Learning & Data Science
 numpy==1.24.3
+pandas==2.1.3
 scikit-learn==1.3.2
 statsmodels==0.14.0
-tensorflow-lite==2.13.0
 
-# Image Processing
-Pillow==10.0.0
+# TensorFlow Lite (versión optimizada)
+tflite-runtime==2.14.0; platform_machine != "x86_64"
+tensorflow==2.15.0; platform_machine == "x86_64"
+
+# Image Processing (HEADLESS para servidores)
+Pillow==10.1.0
 opencv-python-headless==4.8.1.78
 
 # Security
-cryptography==41.0.4
-PyJWT==2.8.1
+cryptography==41.0.7
+PyJWT==2.8.0
 
-# Utils
-python-dotenv==1.0.0
-influxdb-client==1.18.0
-redis==5.0.0
-
-# Testing
+# Testing (solo desarrollo)
 pytest==7.4.3
 pytest-django==4.5.2
+pytest-cov==4.1.0
+
+# Date/Time utilities
+python-dateutil==2.8.2
+pytz==2023.3
