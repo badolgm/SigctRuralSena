@@ -7,11 +7,17 @@ services:
     region: oregon
     branch: main
     rootDir: backend
+    # 🛑 CAMBIO CRÍTICO: Nueva secuencia de comandos para estabilizar la instalación de Python/IA
     buildCommand: |
+      # 1. Instalar dependencias del sistema operativo (para librerías de IA y OpenCV)
+      sudo apt-get update -y
+      sudo apt-get install -y build-essential libpq-dev libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libtiff-dev libwebp-dev python3-dev
+      # 2. Continuar con la instalación de Python
       pip install --upgrade pip
       pip install -r requirements.txt
       python manage.py collectstatic --noinput
       python manage.py migrate
+    # FIN DEL CAMBIO CRÍTICO
     startCommand: gunicorn core.wsgi:application --bind 0.0.0.0:$PORT --workers 2
     envVars:
       - key: PYTHON_VERSION
@@ -30,7 +36,7 @@ services:
           property: connectionString
     healthCheckPath: /
 
-  # Frontend React
+  # Frontend React (sin cambios)
   - type: web
     name: sigct-frontend
     runtime: node
