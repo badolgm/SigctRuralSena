@@ -1,0 +1,10 @@
+/* Estilos para LaboratorioSensores */
+.lab-sensores-body {
+    padding: 20px;
+}
+
+.data-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+}
