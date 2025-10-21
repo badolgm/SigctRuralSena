@@ -1,0 +1,379 @@
+/* frontend/src/pages/laboratorios/LaboratorioAgricultura.css */
+.laboratorio-agricultura {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  color: white;
+}
+
+.lab-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.lab-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.lab-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.lab-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  min-width: 150px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.lab-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.agriculture-section {
+  margin-bottom: 40px;
+}
+
+.agriculture-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.crops-grid, .sensors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.crop-card, .sensor-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.crop-card:hover, .sensor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.crop-header, .sensor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.crop-header h4, .sensor-header h4 {
+  font-size: 1.3rem;
+  margin: 0;
+  color: #fff;
+}
+
+.health-indicator {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.health-indicator.healthy {
+  color: #4CAF50;
+}
+
+.health-indicator.warning {
+  color: #FF9800;
+}
+
+.health-indicator.critical {
+  color: #f44336;
+}
+
+.status-indicator {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.status-indicator.active {
+  color: #4CAF50;
+}
+
+.status-indicator.inactive {
+  color: #f44336;
+}
+
+.crop-info, .sensor-info {
+  margin-bottom: 15px;
+}
+
+.crop-info p, .sensor-info p {
+  margin: 5px 0;
+  opacity: 0.9;
+}
+
+.crop-chart, .sensor-chart {
+  margin: 15px 0;
+}
+
+.growth-bar, .mini-chart {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.growth-fill, .chart-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  transition: width 0.5s ease;
+}
+
+.sensor-value {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.sensor-value .value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.sensor-value .unit {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-left: 5px;
+}
+
+.sensor-location {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 10px 0;
+}
+
+.crop-actions, .sensor-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-secondary {
+  background: #2196F3;
+  color: white;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  transform: scale(1.05);
+}
+
+.predictions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.prediction-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.prediction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.prediction-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.prediction-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4CAF50;
+  margin-bottom: 5px;
+}
+
+.prediction-days, .prediction-trend {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.recommendations-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+}
+
+.recommendations-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.recommendations-list {
+  list-style: none;
+  padding: 0;
+}
+
+.recommendation-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.recommendation-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.recommendation-text {
+  color: #fff;
+}
+
+.ai-integration {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+}
+
+.ai-card {
+  text-align: center;
+}
+
+.ai-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.ai-card p {
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.ai-upload {
+  margin: 20px 0;
+}
+
+.upload-button {
+  display: inline-block;
+  background: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.upload-button:hover {
+  background: #45a049;
+  transform: scale(1.05);
+}
+
+.ai-results {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.result-label {
+  font-weight: bold;
+  color: #fff;
+}
+
+.result-value {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lab-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .crops-grid, .sensors-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .predictions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ai-results {
+    grid-template-columns: 1fr;
+  }
+}
