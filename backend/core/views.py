@@ -2,7 +2,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 import os
-import psutil
 from datetime import datetime
 
 @csrf_exempt
@@ -18,15 +17,11 @@ def health_check(request):
         with connection.cursor() as cursor:
             cursor.execute("SELECT 1")
         
-        # Información del sistema
-        memory_percent = psutil.virtual_memory().percent if hasattr(psutil, 'virtual_memory') else 0
-        
         response_data = {
             "status": "healthy",
             "service": "sigct-backend",
             "timestamp": datetime.now().isoformat(),
             "environment": "production" if os.getenv('RENDER') else "development",
-            "memory_usage": f"{memory_percent}%",
             "database": "connected"
         }
         
