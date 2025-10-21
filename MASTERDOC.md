@@ -621,15 +621,306 @@ sequenceDiagram
 - **Innovación**: IA distribuida en el edge
 - **Sostenibilidad**: Tecnología que no sobrecarga recursos
 
-### **🚀 Visión Futura**
-Este proyecto será la **"cara de entrada al software"** - el portal que conecta a las comunidades rurales con el mundo digital, proporcionando:
-- Herramientas de desarrollo accesibles
-- Recursos educativos globales
-- Tecnología que funciona en condiciones limitadas
-- Conocimiento que transforma vidas
+## 🚀 VISIÓN FUTURA 2025-2030: ECOSISTEMA INTELIGENTE AGRÍCOLA
+
+### 🎯 **MISIÓN EXPANDIDA**
+Crear un ecosistema tecnológico recursivo y adaptable que lleve la investigación científica a zonas rurales, permitiendo que campesinos, indígenas y agricultores aprendan ciencia y tecnología de manera didáctica mientras realizan trabajos agrícolas reales y productivos.
+
+### 🌟 **VISIÓN 2030**
+Ser el ecosistema de referencia en América Latina para la agricultura inteligente, donde la tecnología se convierte en un juego fácil de entender y usar, escalable desde sistemas embebidos básicos hasta soluciones industriales robustas.
+
+### 🎯 **OBJETIVOS ESTRATÉGICOS**
+
+#### **1. ECOSISTEMA RECURSIVO Y ADAPTABLE**
+- **Aprendizaje Continuo**: Los usuarios aprenden haciendo
+- **Teoría Práctica**: La ciencia se convierte en juego
+- **Escalabilidad**: De BBBs a sistemas industriales
+- **Adaptabilidad**: Funciona en cualquier zona rural
+
+#### **2. INTELIGENCIA ARTIFICIAL AVANZADA**
+- **Detección de Enfermedades**: PlantVillage Dataset + modelos propios
+- **Predicción de Cosechas**: Análisis de variables climáticas
+- **Optimización de Recursos**: IA para maximizar productividad
+- **Alertas Inteligentes**: Predicción de daños severos
+
+#### **3. IMPACTO SOCIAL**
+- **Democratización Tecnológica**: Tecnología accesible para todos
+- **Educación Rural**: Ciencia y tecnología en el campo
+- **Productividad Agrícola**: Mejores cosechas, menos pérdidas
+- **Sostenibilidad**: Agricultura inteligente y responsable
+
+### 🔬 **INTEGRACIÓN CON PLANTVILLAGE DATASET**
+
+#### **Dataset de Referencia**
+- **Fuente**: [PlantVillage Dataset](https://github.com/spMohanty/PlantVillage-Dataset)
+- **Contenido**: Imágenes de hojas enfermas + etiquetas
+- **Aplicación**: Detección automática de enfermedades
+- **Integración**: Modelos pre-entrenados + fine-tuning
+
+#### **Modelos de IA Propios**
+```python
+# Arquitectura de modelos para BBB
+class PlantDiseaseModel:
+    def __init__(self):
+        self.base_model = "MobileNetV2"  # Optimizado para BBB
+        self.input_size = (224, 224, 3)
+        self.num_classes = 38  # Enfermedades del café
+        self.confidence_threshold = 0.8
+    
+    def predict_disease(self, image):
+        # Procesamiento en BBB
+        processed_image = self.preprocess(image)
+        prediction = self.model.predict(processed_image)
+        return self.postprocess(prediction)
+```
+
+### 🌱 **CASOS DE USO ESPECÍFICOS**
+
+#### **1. Detección de Enfermedades en Café**
+- **Enfermedades**: Roya, Antracnosis, Cercospora
+- **Método**: Análisis de imágenes de hojas
+- **Resultado**: Diagnóstico instantáneo + tratamiento
+- **Impacto**: Reducción del 30% en pérdidas
+
+#### **2. Predicción de Cosechas en Plátano**
+- **Variables**: Temperatura, humedad, lluvia, viento
+- **Modelo**: LSTM + variables climáticas
+- **Resultado**: Fecha óptima de cosecha
+- **Impacto**: Aumento del 25% en productividad
+
+#### **3. Optimización de Riego**
+- **Sensores**: Humedad del suelo, temperatura
+- **IA**: Predicción de necesidades hídricas
+- **Resultado**: Riego inteligente y eficiente
+- **Impacto**: Ahorro del 40% en agua
+
+### 🏗️ **ARQUITECTURA FUTURA 2025-2030**
+
+#### **TIER 1: DISPOSITIVOS EMBEBIDOS**
+
+BBB-01: Gateway + IA Local
+├── Procesamiento de imágenes
+├── Modelos de detección
+└── Comunicación con sensores
+
+BBB-02: Análisis Climático
+├── Predicción del tiempo
+├── Análisis de tendencias
+└── Alertas inteligentes
+
+BBB-03: Control de Actuadores
+├── Sistemas de riego
+├── Control de invernader
+
+TIER 2: INTELIGENCIA ARTIFICIAL
+
+Modelos de IA Distribuidos:
+├── Detección de Enfermedades (PlantVillage)
+├── Predicción de Cosechas (LSTM)
+├── Optimización de Recursos (Reinforcement Learning)
+└── Análisis de Suelos (
+
+TIER 3: ECOSISTEMA EDUCATIVO
+
+Plataforma de Aprendizaje:
+├── Laboratorios Virtuales
+├── Simuladores Agrícolas
+├── Juegos Educativos
+└──Respuesta**: <2 segundos
+- **Cobertura Geográfica**: 50+ municipios
+- **Usuarios Activos**: 10,000+ agricultores
+
+#### **Sociales**
+- **Reducción de Pérdidas**: 40%
+- **Aumento de Productividad**: 35%
+- **Ahorro de Agua**: 50%
+- **Capacitación Rural**: 5,000+ personas
+
+#### **Económicas**
+- **ROI para Agricultores**: 300%
+- **Ahorro en Pesticidas**: 60%
+- **Optimización de Recursos**: 45%
+- **Nuevos Empleos**: 500+ técnicos
+
+### 🔗 **INTEGRACIÓN CON REFERENCIAS CIENTÍFICAS**
+
+#### **PlantVillage Dataset**
+- **GitHub**: [spMohanty/PlantVillage-Dataset](https://github.com/spMohanty/PlantVillage-Dataset)
+- **Aplicación**: Entrenamiento de modelos de detección
+- **Integración**: API + modelos pre-entrenados
+
+#### **Investigación Científica**
+- **PMC**: [Inteligencia visual en agricultura](https://pmc.ncbi.nlm.nih.gov/articles/PMC10422257/)
+- **Aplicación**: Validación de metodologías
+- **Integración**: Referencias científicas en la plataforma
+
+#### **Impacto Social**
+- **World Bank**: [Equipping youth for the future](https://blogs.worldbank.org/en/investinpeople/equipping-youth-for-the-future)
+- **Aplicación**: Marco de impacto social
+- **Integración**: Metodologías de capacitación
+
+### 🚀 **ROADMAP 2025-2030**
+
+#### **2025: FUNDACIÓN**
+- ✅ Clúster 3 BBBs funcionando
+- ✅ Laboratorios STEM básicos
+- ✅ Integración con PlantVillage
+- ✅ 100+ agricultores capacitados
+
+#### **2026: EXPANSIÓN**
+- 🎯 10+ municipios cubiertos
+- 🎯 Modelos de IA avanzados
+- 🎯 Plataforma educativa completa
+- 🎯 1,000+ usuarios activos
+
+#### **2027: OPTIMIZACIÓN**
+- 🎯 IA distribuida en BBBs
+- 🎯 Predicción de cosechas
+- 🎯 Control automático de riego
+- 🎯 5,000+ agricultores
+
+#### **2028: ESCALABILIDAD**
+- 🎯 50+ municipios
+- 🎯 Sistemas industriales
+- 🎯 Certificaciones rurales
+- 🎯 10,000+ usuarios
+
+#### **2029: INNOVACIÓN**
+- 🎯 IA generativa para agricultura
+- 🎯 Realidad aumentada
+- 🎯 Drones agrícolas
+- 🎯 20,000+ usuarios
+
+#### **2030: LIDERAZGO**
+- 🎯 Referencia en América Latina
+- 🎯 Exportación de tecnología
+- 🎯 Ecosistema completo
+- 🎯 50,000+ usuarios
+
+### 💡 **INNOVACIONES CLAVE**
+
+#### **1. IA Distribuida en BBBs**
+- Modelos optimizados para hardware limitado
+- Procesamiento local sin internet
+- Aprendizaje continuo en campo
+
+#### **2. Gamificación Agrícola**
+- Aprender haciendo
+- Teoría convertida en juego
+- Certificaciones rurales
+
+#### **3. Ecosistema Recursivo**
+- Los usuarios mejoran el sistema
+- Aprendizaje colectivo
+- Adaptación automática
+
+#### **4. Impacto Social Medible**
+- Reducción de pérdidas agrícolas
+- Aumento de productividad
+- Democratización tecnológica
+
+### 🌟 **DIFERENCIADORES COMPETITIVOS**
+
+1. **Tecnología Accesible**: BBBs vs. sistemas costosos
+2. **Educación Integrada**: Aprender haciendo
+3. **IA Local**: Sin dependencia de internet
+4. **Escalabilidad**: De básico a industrial
+5. **Impacto Social**: Democratización tecnológica
+
+### 🎯 **CONCLUSIÓN**
+
+El proyecto SIGC&T-Rural no es solo un sistema de laboratorios, es el **núcleo de un ecosistema tecnológico** que transformará la agricultura rural en América Latina. Con la integración de PlantVillage, IA avanzada y una visión educativa clara, estamos construyendo el futuro de la agricultura inteligente.
+
+
+📊 MÉTRICAS DE IMPACTO 2030
+Técnicas
+Precisión de Detección: >95%
+Tiempo de Respuesta: <2 segundos
+Cobertura Geográfica: 50+ municipios
+Usuarios Activos: 10,000+ agricultores
+Sociales
+Reducción de Pérdidas: 40%
+Aumento de Productividad: 35%
+Ahorro de Agua: 50%
+Capacitación Rural: 5,000+ personas
+Económicas
+ROI para Agricultores: 300%
+Ahorro en Pesticidas: 60%
+Optimización de Recursos: 45%
+Nuevos Empleos: 500+ técnicos
+🔗 INTEGRACIÓN CON REFERENCIAS CIENTÍFICAS
+PlantVillage Dataset
+GitHub: spMohanty/PlantVillage-Dataset
+Aplicación: Entrenamiento de modelos de detección
+Integración: API + modelos pre-entrenados
+Investigación Científica
+PMC: Inteligencia visual en agricultura
+Aplicación: Validación de metodologías
+Integración: Referencias científicas en la plataforma
+Impacto Social
+World Bank: Equipping youth for the future
+Aplicación: Marco de impacto social
+Integración: Metodologías de capacitación
+🚀 ROADMAP 2025-2030
+2025: FUNDACIÓN
+✅ Clúster 3 BBBs funcionando
+✅ Laboratorios STEM básicos
+✅ Integración con PlantVillage
+✅ 100+ agricultores capacitados
+2026: EXPANSIÓN
+🎯 10+ municipios cubiertos
+🎯 Modelos de IA avanzados
+🎯 Plataforma educativa completa
+🎯 1,000+ usuarios activos
+2027: OPTIMIZACIÓN
+🎯 IA distribuida en BBBs
+🎯 Predicción de cosechas
+🎯 Control automático de riego
+🎯 5,000+ agricultores
+2028: ESCALABILIDAD
+🎯 50+ municipios
+🎯 Sistemas industriales
+🎯 Certificaciones rurales
+🎯 10,000+ usuarios
+2029: INNOVACIÓN
+🎯 IA generativa para agricultura
+🎯 Realidad aumentada
+🎯 Drones agrícolas
+🎯 20,000+ usuarios
+2030: LIDERAZGO
+🎯 Referencia en América Latina
+🎯 Exportación de tecnología
+🎯 Ecosistema completo
+🎯 50,000+ usuarios
+💡 INNOVACIONES CLAVE
+1. IA Distribuida en BBBs
+Modelos optimizados para hardware limitado
+Procesamiento local sin internet
+Aprendizaje continuo en campo
+2. Gamificación Agrícola
+Aprender haciendo
+Teoría convertida en juego
+Certificaciones rurales
+3. Ecosistema Recursivo
+Los usuarios mejoran el sistema
+Aprendizaje colectivo
+Adaptación automática
+4. Impacto Social Medible
+Reducción de pérdidas agrícolas
+Aumento de productividad
+Democratización tecnológica
+🌟 DIFERENCIADORES COMPETITIVOS
+Tecnología Accesible: BBBs vs. sistemas costosos
+Educación Integrada: Aprender haciendo
+IA Local: Sin dependencia de internet
+Escalabilidad: De básico a industrial
+Impacto Social: Democratización tecnológica
+🎯 CONCLUSIÓN
+El proyecto SIGC&T-Rural no es solo un sistema de laboratorios, es el núcleo de un ecosistema tecnológico que transformará la agricultura rural en América Latina. Con la integración de PlantVillage, IA avanzada y una visión educativa clara, estamos construyendo el futuro de la agricultura inteligente.
+
 
 ### **💡 Llamada a la Acción**
-**"El mundo debe salir de la ignorancia"** - este proyecto es el primer paso hacia esa transformación, llevando el poder del software libre y la educación STEM a donde más se necesita.
+**"El mundo debe salir de la ignorancia"** - este proyecto es un paso más al conocimiento adquirido y apoyado de muchos hombros de gigantes, para avanzar  hacia una  transformación real, llevando el poder del software "Si lo piensas lo puedes hacer" , es libre y lleva la educación STEM a donde más se necesita.** 🚀
 
 ---
 
@@ -637,11 +928,8 @@ Este proyecto será la **"cara de entrada al software"** - el portal que conecta
 
 *"Transformando la agricultura colombiana con tecnología distribuida, IA avanzada y visión social"*
 
-**Bernardo Gómez | IRTELC01 | SENA 2025**
+**Bernardo Adolfo Gómez | badolgm | SENA 2025**
 
 ---
 
-## 📍 UBICACIÓN DEL MASTERDOC
 
-**Archivo**: `MASTERDOC.md` en la raíz del proyecto
-**Estructura**: 
