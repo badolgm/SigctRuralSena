@@ -1,9 +1,9 @@
 // frontend/src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-// Importamos los componentes existentes
-import LaboratorioCuantico from './pages/LaboratorioCuantico'; 
-import LaboratorioSensores from './pages/LaboratorioSensores'; 
+// Importamos los componentes existentes (ruta actualizada)
+import LaboratorioCuantico from './pages/laboratorios/LaboratorioCuantico'; 
+import LaboratorioSensores from './pages/laboratorios/LaboratorioSensores'; 
 import Dashboard from './pages/Dashboard'; 
 import Login from './pages/Login';
 // Importamos los nuevos componentes
