@@ -48,6 +48,9 @@ opencv-python-headless==4.8.1.78
 cryptography==41.0.7
 PyJWT==2.8.0
 
+# System Monitoring (para health checks)
+psutil==5.9.6
+
 # Testing (solo desarrollo)
 pytest==7.4.3
 pytest-django==4.5.2

@@ -9,19 +9,29 @@ services:
     rootDir: backend
     
     # ==========================================================
-    # CORRECCIÓN CRÍTICA AQUÍ:
-    # 1. Ejecutar el script de dependencias (que está en el root: ../)
-    # 2. Continuar con la instalación de Python
+    # BUILD COMMAND OPTIMIZADO PARA RENDER
     # ==========================================================
     buildCommand: |
-      chmod +x ../install_system_deps.sh
-      ../install_system_deps.sh
+      # Instalar dependencias del sistema de forma más eficiente
+      apt-get update -y && apt-get install -y build-essential libpq-dev libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libtiff-dev libwebp-dev python3-dev python3-venv
+      
+      # Instalar dependencias de Python
       pip install --upgrade pip setuptools wheel
-      pip install -r requirements.txt
+      pip install --no-cache-dir -r requirements.txt
+      
+      # Migraciones y static files
       python manage.py collectstatic --noinput
       python manage.py migrate --noinput
     
-    startCommand: gunicorn core.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    # ==========================================================
+    # START COMMAND OPTIMIZADO PARA ESTABILIDAD
+    # ==========================================================
+    startCommand: gunicorn core.wsgi:application --bind 0.0.0.0:$PORT --workers 1 --timeout 300 --max-requests 1000 --max-requests-jitter 100 --preload
+    
+    # ==========================================================
+    # HEALTH CHECK CRÍTICO - DEBE APUNTAR A LA RAÍZ
+    # ==========================================================
+    healthCheckPath: /
     
     envVars:
       - key: PYTHON_VERSION
@@ -38,13 +48,20 @@ services:
         fromDatabase:
           name: sigct-db-prod
           property: connectionString
+      
+      # ==========================================================
+      # VARIABLES CRÍTICAS PARA ESTABILIDAD
+      # ==========================================================
+      - key: PYTHONUNBUFFERED
+        value: 1
+      - key: PYTHONDONTWRITEBYTECODE
+        value: 1
+      
       # Variables adicionales para librerías de IA
       - key: LD_PRELOAD
         value: /usr/lib/x86_64-linux-gnu/libgomp.so.1
       - key: OPENCV_VIDEOIO_PRIORITY_MSMF
         value: 0
-    
-    healthCheckPath: /admin/login/
 
   # Frontend React
   - type: web
