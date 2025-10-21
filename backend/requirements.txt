@@ -19,6 +19,7 @@ drf-spectacular==0.26.5
 # Production Server (CRÍTICO para Render)
 gunicorn==21.2.0
 whitenoise==6.6.0
+daphne
 
 # Environment Variables
 python-dotenv==1.0.0
