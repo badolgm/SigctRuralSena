@@ -8,8 +8,14 @@ services:
     branch: main
     rootDir: backend
     
-    # Build con dependencias del sistema instaladas correctamente
+    # ==========================================================
+    # CORRECCIÓN CRÍTICA AQUÍ:
+    # 1. Ejecutar el script de dependencias (que está en el root: ../)
+    # 2. Continuar con la instalación de Python
+    # ==========================================================
     buildCommand: |
+      chmod +x ../install_system_deps.sh
+      ../install_system_deps.sh
       pip install --upgrade pip setuptools wheel
       pip install -r requirements.txt
       python manage.py collectstatic --noinput
@@ -51,7 +57,6 @@ services:
     
     buildCommand: npm ci --legacy-peer-deps && npm run build
     
-    # Mejor opción: usar el servidor integrado de Vite
     staticPublishPath: ./dist
     
     envVars:
