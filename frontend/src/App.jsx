@@ -6,6 +6,7 @@ import LaboratorioCuantico from './pages/laboratorios/LaboratorioCuantico';
 import LaboratorioSensores from './pages/laboratorios/LaboratorioSensores'; 
 import Dashboard from './pages/Dashboard'; 
 import Login from './pages/Login';
+import DashboardFuturista from './pages/DashboardFuturista';
 // Importamos los nuevos componentes
 import BottomNav from './components/Navigation/BottomNav';
 import LaboratorioRobotica from './pages/laboratorios/LaboratorioRobotica';
@@ -65,6 +66,7 @@ function App() {
             
             {/* 📚 CURSOS */}
             <Route path="/cursos" element={<Layout><div style={{padding: '20px', textAlign: 'center'}}><h2>Módulo de Cursos 📚</h2><p>Contenido Educativo LMS.</p></div></Layout>} />
+            <Route path="/dashboard-new" element={<DashboardFuturista />} />
         </Routes>
     </Router>
   );
