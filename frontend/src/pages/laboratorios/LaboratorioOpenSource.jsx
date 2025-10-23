@@ -1,6 +1,6 @@
 
 import React from 'react';
-import '../DashboardFuturista.css';
+import '../Dashboard.css';
 
 const LaboratorioOpenSource = () => {
   return (

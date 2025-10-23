@@ -3,9 +3,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // Componentes de páginas
-import Dashboard from './pages/Dashboard'; 
+import Dashboard from './pages/Dashboard'; // Esta es AHORA la versión futurista (renombrada)
 import Login from './pages/Login';
-import DashboardFuturista from './pages/DashboardFuturista';
 
 // Laboratorios
 import LaboratorioOpenSource from './pages/laboratorios/LaboratorioOpenSource';
@@ -21,28 +20,38 @@ import BottomNav from './components/Navigation/BottomNav';
 
 import './App.css'; 
 
-// Componente Layout con Header, Footer y BottomNav
+// --- LAYOUT CORREGIDO ---
+// Este Layout se usa para TODAS las páginas EXCEPTO el Dashboard principal
 const Layout = ({ children }) => (
     <div className="App-Layout" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        {/* Encabezado para páginas secundarias */}
         <header className="App-header" style={{ background: '#222', color: 'white', padding: '15px 30px', boxShadow: '0 2px 5px rgba(0,0,0,0.5)' }}>
             <nav className="App-nav" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#4CAF50' }}>🌱 SIGC&T-Rural v2.0</span>
+                
+                {/* 1. TÍTULO DUPLICADO ELIMINADO (Petición A) */}
+                {/* Ya no hay un logo/título estático aquí */}
+                
+                {/* 2. ENLACES CORREGIDOS (Petición B) */}
+                {/* El enlace principal ahora es el título que querías */}
                 <div>
-                    <Link to="/" style={{ margin: '0 15px', color: 'white', textDecoration: 'none' }}>Dashboard (IoT)</Link>
-                    <Link to="/dashboard-new" style={{ margin: '0 15px', color: '#00ff88', textDecoration: 'none', fontWeight: 'bold' }}>🚀 Dashboard Futurista</Link>
+                    <Link to="/" style={{ margin: '0 15px', color: '#00ff88', textDecoration: 'none', fontWeight: 'bold' }}>🌱 SIGC&T-Rural v2.0</Link>
                     <Link to="/laboratorios" style={{ margin: '0 15px', color: 'white', textDecoration: 'none' }}>Laboratorios STEM</Link>
                     <Link to="/cursos" style={{ margin: '0 15px', color: 'white', textDecoration: 'none' }}>Cursos</Link>
                     <Link to="/login" style={{ margin: '0 15px', color: '#ffc107', textDecoration: 'none', border: '1px solid #ffc107', padding: '5px 10px', borderRadius: '5px' }}>Acceso</Link>
                 </div>
             </nav>
         </header>
-        <main style={{ flex: 1, padding: '20px', backgroundColor: '#f8f9fa', paddingBottom: '80px' }}>
+        
+        {/* 3. FONDO BLANCO CORREGIDO (Problema 1) */}
+        {/* Se cambió 'backgroundColor' a un color oscuro '#151932' */ }
+        <main style={{ flex: 1, padding: '20px', backgroundColor: '#151932', paddingBottom: '80px' }}>
             {children}
         </main>
+        
         <footer style={{ padding: '10px', background: '#333', color: 'white', textAlign: 'center', fontSize: '12px' }}>
             Autor: Bernardo Adolfo Gómez Montoya | SENA - Ficha 3070388 | Proyecto Productivo Integrado
         </footer>
-        {/* Navegación Móvil Inferior */}
+        
         <BottomNav />
     </div>
 );
@@ -51,13 +60,10 @@ function App() {
   return (
     <Router>
         <Routes>
-            {/* 🏠 DASHBOARD PRINCIPAL (con Layout) */}
-            <Route path="/" element={<Layout><Dashboard /></Layout>} />
+            {/* 🏠 DASHBOARD PRINCIPAL (SIN Layout - tiene su propio diseño) */}
+            <Route path="/" element={<Dashboard />} />
             
-            {/* 🚀 DASHBOARD FUTURISTA (SIN Layout - diseño propio) */}
-            <Route path="/dashboard-new" element={<DashboardFuturista />} />
-            
-            {/* 🧪 LABORATORIOS STEM (con Layout) */}
+            {/* 🧪 LABORATORIOS STEM (con Layout corregido) */}
             <Route path="/laboratorios" element={<Layout><LaboratorioSensores /></Layout>} /> 
             <Route path="/laboratorios/sensores" element={<Layout><LaboratorioSensores /></Layout>} />
             <Route path="/laboratorios/cuantico" element={<Layout><LaboratorioCuantico /></Layout>} />
@@ -67,20 +73,24 @@ function App() {
             <Route path="/laboratorios/agricultura" element={<Layout><LaboratorioAgricultura /></Layout>} />
             <Route path="/laboratorios/software" element={<Layout><LaboratorioSoftware /></Layout>} />
             
-            {/* 📡 SENSORES (con Layout) */}
+            {/* --- CONTENIDO CON TEXTO CORREGIDO (Problema 1) --- */}
+            
+            {/* 📡 SENSORES (con Layout y texto blanco) */}
             <Route path="/sensores" element={
                 <Layout>
-                    <div style={{padding: '20px', textAlign: 'center'}}>
+                    {/* Se añadió color: '#ffffff' para arreglar texto invisible */}
+                    <div style={{padding: '20px', textAlign: 'center', color: '#ffffff'}}>
                         <h2>📡 Sensores IoT</h2>
                         <p>Monitoreo en tiempo real de variables ambientales.</p>
                     </div>
                 </Layout>
             } />
             
-            {/* 📊 ANALYTICS (con Layout) */}
+            {/* 📊 ANALYTICS (con Layout y texto blanco) */}
             <Route path="/analytics" element={
                 <Layout>
-                    <div style={{padding: '20px', textAlign: 'center'}}>
+                    {/* Se añadió color: '#ffffff' para arreglar texto invisible */}
+                    <div style={{padding: '20px', textAlign: 'center', color: '#ffffff'}}>
                         <h2>📊 Analytics</h2>
                         <p>Análisis de datos y métricas del sistema.</p>
                     </div>
@@ -89,11 +99,12 @@ function App() {
             
             {/* 🔐 AUTENTICACIÓN (con Layout) */}
             <Route path="/login" element={<Layout><Login /></Layout>} />
-        s    
-            {/* 📚 CURSOS (con Layout) */}
+            
+            {/* 📚 CURSOS (con Layout y texto blanco) */}
             <Route path="/cursos" element={
                 <Layout>
-                    <div style={{padding: '20px', textAlign: 'center'}}>
+                    {/* Se añadió color: '#ffffff' para arreglar texto invisible */}
+                    <div style={{padding: '20px', textAlign: 'center', color: '#ffffff'}}>
                         <h2>Módulo de Cursos 📚</h2>
                         <p>Contenido Educativo LMS.</p>
                     </div>
@@ -105,3 +116,4 @@ function App() {
 }
 
 export default App;
+
