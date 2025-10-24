@@ -1,5 +1,6 @@
 // frontend/src/pages/laboratorios/LaboratorioAgricultura.jsx
 import React, { useState, useEffect } from 'react';
+import PlantDiseaseClassifier from '../../components/IA/PlantDiseaseClassifier';
 import './LaboratorioAgricultura.css';
 
 const LaboratorioAgricultura = () => {
@@ -181,31 +182,16 @@ const LaboratorioAgricultura = () => {
           </div>
         </div>
 
-        {/* Integración con PlantVillage */}
+        {/* 🤖 COMPONENTE DE IA INTEGRADO - NUEVA SECCIÓN */}
         <div className="agriculture-section">
-          <h3>🤖 IA para Detección de Enfermedades</h3>
-          <div className="ai-integration">
-            <div className="ai-card">
-              <h4>🔬 Análisis de Imágenes</h4>
-              <p>Sube una imagen de una hoja para detectar enfermedades automáticamente</p>
-              <div className="ai-upload">
-                <input type="file" accept="image/*" id="disease-upload" />
-                <label htmlFor="disease-upload" className="upload-button">
-                  📷 Subir Imagen
-                </label>
-              </div>
-              <div className="ai-results">
-                <div className="result-item">
-                  <span className="result-label">Enfermedad Detectada:</span>
-                  <span className="result-value">Ninguna</span>
-                </div>
-                <div className="result-item">
-                  <span className="result-label">Confianza:</span>
-                  <span className="result-value">95%</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h3>🤖 Clasificador de Enfermedades con IA</h3>
+          <p className="section-description">
+            Sube una imagen de una hoja o planta para detectar enfermedades automáticamente 
+            usando tecnología de Machine Learning y el dataset PlantVillage
+          </p>
+          
+          {/* Aquí va el componente de IA */}
+          <PlantDiseaseClassifier />
         </div>
       </div>
     </div>
