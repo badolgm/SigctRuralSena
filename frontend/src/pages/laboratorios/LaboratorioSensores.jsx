@@ -1,4 +1,4 @@
-// frontend/src/pages/LaboratorioSensores.jsx
+// frontend/src/pages/laboratorios/LaboratorioSensores.jsx
 import React, { useState, useEffect } from 'react';
 import './LaboratorioSensores.css';
 // Asumimos que tienes una librería como Recharts para gráficas
@@ -9,16 +9,17 @@ const LaboratorioSensores = () => {
         { id: 1, sensor: 'DHT22 Temp', valor: 25.5, nodo: 'BBB3', unidad: '°C' },
         { id: 2, sensor: 'Humedad Suelo', valor: 58.2, nodo: 'BBB3', unidad: '%' },
         { id: 3, sensor: 'Predicción ARIMA', valor: 26.1, nodo: 'BBB2', unidad: '°C (Futuro)' },
+        { id: 4, sensor: 'PH Suelo', valor: 6.8, nodo: 'BBB1', unidad: '' },
     ]);
 
     // Función para simular el fetch de datos vivos de la API (RF006)
     useEffect(() => {
-        // fetch('/api/sensores/lecturas/ultimas/') 
-        // Lógica de consulta al Backend desplegado en Render
+        // Lógica de consulta al Backend desplegado en Render (placeholder)
         const interval = setInterval(() => {
             setLecturas(prev => prev.map(l => ({
                 ...l,
-                valor: (l.valor + (Math.random() * 0.5 - 0.25)).toFixed(1) // Simulación de variación
+                // Simulación de variación con límite
+                valor: (parseFloat(l.valor) + (Math.random() * 0.5 - 0.25)).toFixed(1)
             })));
         }, 5000); // Actualización cada 5 segundos
         return () => clearInterval(interval);
@@ -44,10 +45,9 @@ const LaboratorioSensores = () => {
             
             <section className="map-view">
                 <h2>Localización del Nodos IoT</h2>
-                {/* Aquí se integraría la vista de mapa (mapbox/leaflet) sugerida en los diagramas antiguos */}
                 <div className="map-placeholder">
                     
-                    <p>Integración de Mapas de Navegación del proyecto antiguo (AA1-EV07) para georreferenciación.</p>
+                    <p>Integración de Mapas de Navegación del proyecto (AA1-EV07) para georreferenciación.</p>
                 </div>
             </section>
         </div>
