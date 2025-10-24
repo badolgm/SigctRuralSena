@@ -22,6 +22,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,.onrender.c
 # APPLICATION DEFINITION
 # ============================================================================
 INSTALLED_APPS = [
+    'apps.ia_plantvillage',
     'daphne',  # WebSocket support (debe ir primero)
     'django.contrib.admin',
     'django.contrib.auth',
