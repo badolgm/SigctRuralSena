@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio Cuántico del Dr. Binary</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos CSS adaptados del archivo original, añadiendo mejoras visuales y educativas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            /* Fondo Cuántico: Más oscuro, con gradientes que simulan energía */
+            background: linear-gradient(135deg, #050510 0%, #100b20 50%, #1a0f3a 100%);
+            min-height: 100vh;
+            color: #E0E0FF; /* Blanco azulado para el texto */
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Partículas de fondo (mantenido del original) */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #00FFC0;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: moveParticle 10s infinite ease-in-out;
+        }
+        
+        @keyframes moveParticle {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50vw, 50vh) scale(1.5); opacity: 0.1; }
+        }
+
+        .lab-container {
+            position: relative;
+            z-index: 2;
+            width: 95%;
+            max-width: 1000px;
+            padding: 25px;
+            margin: 20px auto;
+            /* Estilo de tarjeta futurista con neón */
+            background: rgba(30, 0, 80, 0.4); 
+            border: 2px solid #5a189a;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .lab-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00FFC0; /* Neón verde/cian */
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px #00FFC0, 0 0 20px #00FFFF;
+        }
+        
+        /* Nuevo: Mensaje educativo principal */
+        .educational-motto {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #B0B0FF;
+            margin-bottom: 20px;
+            font-style: italic;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .challenge-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #5a189a;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .challenge-title {
+            color: #FF69B4; /* Neón rosa */
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .equation-area {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            border: 1px solid #00FFFF;
+            color: #00FFFF;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Input y Botón de Respuesta */
+        .response-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #user-answer {
+            flex-grow: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #5a189a;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        #submit-btn {
+            padding: 10px 20px;
+            background-color: #FF69B4; /* Botón Neón Rosa */
+            color: black;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s, box-shadow 0.3s;
+            box-shadow: 0 0 10px #FF69B4;
+        }
+
+        #submit-btn:hover {
+            background-color: #FFB7D6;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px #FF69B4;
+        }
+
+        /* Área de Progreso y Mensajes */
+        .progress-box {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #5a189a;
+            margin-bottom: 20px;
+        }
+
+        .metric div {
+            text-align: center;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: #B0B0FF;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+            color: #00FFC0;
+        }
+
+        #result-message {
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            min-height: 40px;
+        }
+
+        .success { background-color: rgba(57, 255, 20, 0.2); color: #39FF14; border: 1px solid #39FF14; }
+        .error { background-color: rgba(255, 0, 0, 0.2); color: #FF0000; border: 1px solid #FF0000; }
+
+        /* Nuevo: Sección de Tips Educativos */
+        #educational-tip {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 50, 100, 0.2);
+            border-left: 5px solid #00FFFF;
+            border-radius: 5px;
+            color: #00FFFF;
+            font-size: 0.95rem;
+        }
+        
+        .tip-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #00FFC0;
+        }
+
+        /* Media Queries para Responsividad */
+        @media (max-width: 600px) {
+            .lab-header h1 {
+                font-size: 1.5rem;
+            }
+            .equation-area {
+                font-size: 1.2rem;
+            }
+            .response-area {
+                flex-direction: column;
+            }
+            #submit-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles-container"></div>
+    <div class="lab-container">
+        <div class="lab-header">
+            <h1>Laboratorio Cuántico del Dr. Binary</h1>
+        </div>
+
+        <!-- Nuevo Mensaje Educativo CIENTÍFICO (Requerido por el usuario) -->
+        <p class="educational-motto">
+            "Cada bit de conocimiento que adquieres es un salto cuántico hacia tu futuro. ¡Analiza y experimenta!"
+        </p>
+        
+        <div class="progress-box">
+            <div class="metric">
+                <div class="metric-value" id="score">0</div>
+                <div class="metric-label">Puntuación de Energía</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value" id="level">1</div>
+                <div class="metric-label">Nivel de Simulación</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value" id="accuracy">100%</div>
+                <div class="metric-label">Precisión de Inferencia</div>
+            </div>
+        </div>
+
+        <div class="challenge-box">
+            <p class="challenge-title">Desafío Cuántico Actual:</p>
+            <div id="challenge" class="equation-area">$$ \text{Iniciando Sistema...} $$</div>
+            
+            <div class="response-area">
+                <input type="text" id="user-answer" placeholder="Introduce tu respuesta aquí (e.g., 5x+2)" onkeydown="if (event.key === 'Enter') checkAnswer()">
+                <button id="submit-btn" onclick="checkAnswer()">Enviar Partícula</button>
+            </div>
+
+            <div id="result-message"></div>
+        </div>
+        
+        <!-- Nuevo: Sección de Tips Educativos (Para guiar y educar a los niños) -->
+        <div id="educational-tip">
+            <div class="tip-title">💡 Tip Científico del Dr. Binary:</div>
+            <span id="tip-content"></span>
+        </div>
+
+    </div>
+
+    <script>
+        // Lógica JavaScript (Adaptada y mejorada)
+        const quantumLab = {
+            score: 0,
+            level: 1,
+            correctCount: 0,
+            totalAttempts: 0,
+            currentChallenge: null,
+            currentAnswer: null,
+            currentMode: 'Algebra',
+            challenges: {
+                Algebra: [
+                    { q: '3x + 5 = 14. Halla x.', eq: '3x + 5 = 14', ans: '3', tip: 'Recuerda despejar la incógnita. Resta 5 a ambos lados, y luego divide por 3.' },
+                    { q: '2(y - 4) = 10. Halla y.', eq: '2(y - 4) = 10', ans: '9', tip: 'Primero, divide ambos lados por 2. Luego, suma 4 para despejar y.' },
+                    { q: '7z - 1 = 6z + 5. Halla z.', eq: '7z - 1 = 6z + 5', ans: '6', tip: 'Agrupa las variables (z) a un lado y los números al otro.' },
+                ],
+                Factorization: [
+                    { q: 'Factoriza: x² - 9', eq: 'x^2 - 9', ans: '(x-3)(x+3)', ans2: '(x+3)(x-3)', tip: 'Esta es una Diferencia de Cuadrados. $a^2 - b^2 = (a-b)(a+b)$.' },
+                    { q: 'Factoriza: 2y + 4', eq: '2y + 4', ans: '2(y+2)', tip: 'Busca el Máximo Común Divisor (MCD). El 2 está en ambos términos.' },
+                ],
+                Binary: [
+                    { q: 'Convierte el binario 1010 a decimal.', eq: '1010_2 = ?_{10}', ans: '10', tip: 'Los pesos son 8, 4, 2, 1. (1*8) + (0*4) + (1*2) + (0*1).' },
+                    { q: 'Convierte el decimal 7 a binario.', eq: '7_{10} = ?_2', ans: '111', tip: 'El 7 es igual a 4 + 2 + 1, que es $111_2$.' },
+                ]
+            },
+            tips: [
+                "La física cuántica estudia lo más pequeño; las matemáticas son el lenguaje para entenderlo.",
+                "Un qubit puede ser 0, 1 o AMBOS al mismo tiempo. ¡Esa es la superposición cuántica!",
+                "La factorización simplifica problemas complejos. ¡Es tu herramienta para descifrar el universo!",
+                "El código binario es el idioma de las computadoras. ¡Aprenderlo es comunicarte con la tecnología!",
+                "El principio de incertidumbre de Heisenberg: ¡cuanto más conoces la posición de una partícula, menos conoces su momento!"
+            ]
+        };
+
+        const scoreEl = document.getElementById('score');
+        const levelEl = document.getElementById('level');
+        const accuracyEl = document.getElementById('accuracy');
+        const challengeEl = document.getElementById('challenge');
+        const answerInput = document.getElementById('user-answer');
+        const submitBtn = document.getElementById('submit-btn');
+        const resultMessage = document.getElementById('result-message');
+        const tipContentEl = document.getElementById('tip-content');
+        const particlesContainer = document.getElementById('particles-container');
+
+        // Función de inicialización
+        function initQuantumLab() {
+            loadState();
+            generateChallenge();
+            updateEducationalTip();
+            createParticles();
+        }
+
+        // Genera partículas de fondo (basado en el original)
+        function createParticles() {
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Generar un desafío al azar
+        function generateChallenge() {
+            // Rotar entre modos cada 5 niveles
+            const modeKeys = Object.keys(quantumLab.challenges);
+            const modeIndex = Math.floor((quantumLab.level - 1) / 5) % modeKeys.length;
+            quantumLab.currentMode = modeKeys[modeIndex];
+            
+            const modeChallenges = quantumLab.challenges[quantumLab.currentMode];
+            const randomIndex = Math.floor(Math.random() * modeChallenges.length);
+            quantumLab.currentChallenge = modeChallenges[randomIndex];
+
+            // Muestra la ecuación con formato HTML simple
+            let eqDisplay = quantumLab.currentChallenge.eq;
+            
+            // Reemplazar notación científica por visualmente más atractiva para el HTML simple
+            eqDisplay = eqDisplay.replace(/\^/g, '<sup>').replace(/_/g, '<sub>');
+            challengeEl.innerHTML = eqDisplay;
+
+            answerInput.value = '';
+            resultMessage.className = '';
+            resultMessage.innerHTML = '¡Resuelve la Ecuación del Nivel ' + quantumLab.level + '!';
+        }
+        
+        // Actualizar Tip Educativo aleatorio
+        function updateEducationalTip() {
+            const randomIndex = Math.floor(Math.random() * quantumLab.tips.length);
+            tipContentEl.textContent = quantumLab.tips[randomIndex];
+        }
+
+        // Verificar la respuesta del usuario
+        function checkAnswer() {
+            const userAnswer = answerInput.value.trim().toLowerCase().replace(/\s/g, '');
+            const correctAns = quantumLab.currentChallenge.ans.trim().toLowerCase().replace(/\s/g, '');
+            const correctAns2 = quantumLab.currentChallenge.ans2 ? quantumLab.currentChallenge.ans2.trim().toLowerCase().replace(/\s/g, '') : null;
+
+            quantumLab.totalAttempts++;
+
+            if (userAnswer === correctAns || (correctAns2 && userAnswer === correctAns2)) {
+                // Respuesta correcta
+                quantumLab.correctCount++;
+                quantumLab.score += 10 * quantumLab.level;
+                quantumLab.level++;
+                resultMessage.innerHTML = `✅ ¡CORRECTO! Avance Cuántico exitoso. +${10 * (quantumLab.level - 1)} puntos.`;
+                resultMessage.className = 'success';
+                
+                // Mostrar un mensaje de felicitación científico más bonito
+                setTimeout(() => {
+                    const congrats = [
+                        "¡Felicidades! Lograste la Superposición Correcta.",
+                        "¡Inferencia perfecta! El Dr. Binary está orgulloso.",
+                        "¡Has colapsado la función de onda correctamente!",
+                        "¡Tu lógica ha superado el test de Turing Cuántico!",
+                        "¡Energía positiva generada! ¡Sigue así!"
+                    ];
+                    resultMessage.innerHTML = `¡${congrats[Math.floor(Math.random() * congrats.length)]}! Nivel ${quantumLab.level}.`;
+                    generateChallenge();
+                    updateEducationalTip();
+                }, 2000);
+
+            } else {
+                // Respuesta incorrecta
+                resultMessage.innerHTML = `❌ Error en el cálculo. Pista: ${quantumLab.currentChallenge.tip}`;
+                resultMessage.className = 'error';
+                
+                // Penalización ligera (no muy dura para los niños)
+                quantumLab.score = Math.max(0, quantumLab.score - 2); 
+
+                // Intentar de nuevo sin cambiar el desafío inmediatamente
+                setTimeout(() => {
+                    resultMessage.innerHTML = 'Inténtalo de nuevo. La ciencia a veces requiere persistencia.';
+                    resultMessage.className = '';
+                    updateEducationalTip();
+                }, 4000);
+            }
+
+            updateMetrics();
+            saveState();
+        }
+
+        // Actualizar la visualización de métricas
+        function updateMetrics() {
+            scoreEl.textContent = quantumLab.score;
+            levelEl.textContent = quantumLab.level;
+            
+            // Calcula la precisión
+            const accuracy = quantumLab.totalAttempts > 0 
+                ? ((quantumLab.correctCount / quantumLab.totalAttempts) * 100).toFixed(0) 
+                : 100;
+            accuracyEl.textContent = `${accuracy}%`;
+        }
+
+        // Persistencia (usamos localStorage como simulador local de estado)
+        function saveState() {
+            localStorage.setItem('quantumLabState', JSON.stringify(quantumLab));
+        }
+
+        function loadState() {
+            const savedState = localStorage.getItem('quantumLabState');
+            if (savedState) {
+                Object.assign(quantumLab, JSON.parse(savedState));
+            }
+            updateMetrics();
+        }
+
+        window.checkAnswer = checkAnswer; // Exponer la función para el onclick del botón
+        window.onload = initQuantumLab; // Inicializar en la carga
+    </script>
+</body>
+</html>
