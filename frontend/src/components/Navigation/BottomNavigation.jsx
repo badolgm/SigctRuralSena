@@ -4,10 +4,15 @@ import { NavLink } from 'react-router-dom';
 // Usamos Tailwind CSS para el diseño flotante y futurista (No requiere BottomNav.css)
 const navItems = [
     { path: '/', icon: 'fas fa-chart-bar', label: 'Dashboard' },
-    { path: '/laboratorios', icon: 'fas fa-flask', label: 'Laboratorios' },
+    { path: '/laboratorios', icon: 'fas fa-flask', label: 'Labs' },
+    // FIX V3.0: Añadimos rutas de acceso rápido clave (IoT y Software) para balancear la navegación
+    { path: '/laboratorios/sensores', icon: 'fas fa-thermometer-half', label: 'Sensores' }, // IoT/DHT22
+    { path: '/laboratorios/software', icon: 'fas fa-code', label: 'Software' }, // Telemática/Dev
+    // Rutas de analítica y documentación
     { path: '/analytics', icon: 'fas fa-chart-line', label: 'Analytics' },
-    { path: '/laboratorios/cuantico', icon: 'fas fa-atom', label: 'Cuántico' },
-    { path: '/docs/evidencias', icon: 'fas fa-graduation-cap', label: 'Evidencias' },
+    { path: '/docs/evidencias', icon: 'fas fa-graduation-cap', label: 'SENA' }, // Nombre corto para móvil
+    
+    // NOTA: Se eliminó /laboratorios/cuantico (acceso desde /laboratorios)
 ];
 
 const BottomNavigation = () => {
@@ -25,6 +30,7 @@ const BottomNavigation = () => {
                             ${isActive ? 'bg-green-600 text-white shadow-lg shadow-green-500/50' : 'text-gray-300 hover:text-green-400 hover:bg-gray-700/50'}`
                         }
                     >
+                        {/* Asegúrese de que FontAwesome esté cargado globalmente */}
                         <i className={`${item.icon} text-lg sm:text-xl`}></i>
                         {/* El label se oculta en móviles, pero se mantiene para tablets/desktop */}
                         <span className="hidden sm:block text-xs mt-1">{item.label}</span>
@@ -35,4 +41,4 @@ const BottomNavigation = () => {
     );
 };
 
-export default BottomNavigation;
+export default BottomNavigation; // <-- EXPORTACIÓN CLAVE

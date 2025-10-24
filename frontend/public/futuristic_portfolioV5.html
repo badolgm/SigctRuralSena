@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Portafolio Futurista SENA ADS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght=300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-blue: #00f5ff;
+            --neon-purple: #8a2be2;
+            --neon-pink: #ff1493;
+            --neon-green: #39ff14;
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(15, 15, 35, 0.8);
+            --text-light: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            /* Asegura que el fondo oscuro se mantenga dentro del iframe */
+            background: 
+                radial-gradient(circle at 25% 25%, var(--neon-purple) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, var(--neon-blue) 0%, transparent 50%),
+                var(--dark-bg);
+            color: var(--text-light);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .terminal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 3px solid var(--neon-blue);
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0, 245, 255, 0.3);
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .terminal-header {
+            background: rgba(0, 245, 255, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--neon-blue);
+        }
+
+        .terminal-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+
+        .terminal-body {
+            padding: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .prompt {
+            color: var(--neon-pink);
+            margin-right: 5px;
+        }
+
+        .path {
+            color: var(--neon-blue);
+            margin-right: 5px;
+        }
+
+        .command {
+            color: var(--neon-green);
+            font-weight: 600;
+        }
+        
+        /* Contenido de la carpeta */
+        .file-structure {
+            border-left: 2px dashed rgba(138, 43, 226, 0.5);
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+
+        .folder-item {
+            padding: 8px 0;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .folder-item:hover {
+            background-color: rgba(138, 43, 226, 0.1);
+            color: white;
+        }
+
+        .folder-item .icon {
+            margin-right: 10px;
+            color: var(--neon-purple);
+            font-size: 1.1rem;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-pink);
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 20, 147, 0.3);
+            padding-bottom: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .terminal-body {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <span class="terminal-title">SENA_ADS / PROYECTO_FINAL</span>
+            <div>
+                <span style="color: red; margin-right: 8px;">•</span>
+                <span style="color: yellow; margin-right: 8px;">•</span>
+                <span style="color: var(--neon-green);">•</span>
+            </div>
+        </div>
+        <div class="terminal-body">
+            <div>
+                <span class="prompt">$</span>
+                <span class="path">~/evidencias/sena</span>
+                <span class="command">cat portafolio_futurista.json</span>
+            </div>
+            
+            <p class="section-title">👤 PERFIL Y COMPETENCIAS</p>
+            <div class="file-structure">
+                <p><strong>Autor:</strong> Bernardo Adolfo Gómez Montoya</p>
+                <p><strong>Ficha:</strong> 3070388 - Análisis y Desarrollo de Software (ADSO)</p>
+                <p><strong>Proyecto:</strong> SIGC&T-Rural v2.0</p>
+            </div>
+            
+            <p class="section-title">📂 ESTRUCTURA DE EVIDENCIAS Y APRENDIZAJE</p>
+            <div class="file-structure">
+                <div class="folder-item" onclick="toggleFolder('fase-analisis')">
+                    <span class="icon">📁</span>
+                    <span><strong>Fase 1: Análisis y Planificación</strong> (3 Actividades)</span>
+                </div>
+                <div id="fase-analisis" style="display: none; margin-left: 20px;">
+                    <div class="folder-item">
+                        <span class="icon">📋</span>
+                        <span>220501095 - Especificación de Requisitos</span>
+                    </div>
+                    <div class="folder-item">
+                        <span class="icon">🗺️</span>
+                        <span>Mapa de Navegación y Arquitectura (GA5-AA1-EV07)</span>
+                    </div>
+                    <div class="folder-item">
+                        <span class="icon">🔗</span>
+                        <span>Modelado de Casos de Uso</span>
+                    </div>
+                </div>
+                
+                <div class="folder-item" onclick="toggleFolder('fase-desarrollo')">
+                    <span class="icon">📁</span>
+                    <span><strong>Fase 2: Diseño y Desarrollo</strong> (4 Actividades)</span>
+                </div>
+                <div id="fase-desarrollo" style="display: none; margin-left: 20px;">
+                    <div class="folder-item">
+                        <span class="icon">💻</span>
+                        <span>220501096 - Desarrollar Solución Software</span>
+                    </div>
+                    <div class="folder-item">
+                        <span class="icon">🔍</span>
+                        <span>Análisis de Requisitos y Validación</span>
+                    </div>
+                    <div class="folder-item">
+                        <span class="icon">🎨</span>
+                        <span>Modelado de Funciones y Arquitectura</span>
+                    </div>
+                </div>
+                <div class="folder-item" onclick="toggleFolder('proyectos')">
+                    <span class="icon">📑</span>
+                    <span><strong>Proyectos Formativos</strong> (3 proyectos principales)</span>
+                </div>
+                <div id="proyectos" style="display: none; margin-left: 20px;">
+                    <div class="folder-item">
+                        <span class="icon">🏢</span>
+                        <span>Sistema de Gestión Empresarial</span>
+                    </div>
+                    <div class="folder-item">
+                        <span class="icon">🌐</span>
+                        <span>Aplicación Web Responsiva</span>
+                    </div>
+                    <div class="folder-item">
+                        <span class="icon">📱</span>
+                        <span>App Móvil Multiplataforma</span>
+                    </div>
+                </div>
+                <div class="folder-item">
+                    <span class="icon">🛠️</span>
+                    <span>Masterdoc.md y Plan Maestro V3.0</span>
+                </div>
+            </div>
+            
+            <p class="section-title">📡 TECNOLOGÍAS CLAVE</p>
+            <div class="file-structure">
+                <p>⚛️ React (Frontend) | 🐍 Django/Python (Backend) | 📊 PostgreSQL (DB) | 🧠 TensorFlow Lite (IA Edge) | ⚙️ IoT/BeagleBone Black</p>
+            </div>
+            
+            <div>
+                <span class="prompt">$</span>
+                <span class="path">~/evidencias/sena</span>
+                <span class="command">echo "Listo para la sustentación"</span>
+            </div>
+            <div style="color: var(--neon-green); margin-top: 10px;">
+                > Ready for deployment. Status: Optimized V3.0
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleFolder(id) {
+            const element = document.getElementById(id);
+            if (element.style.display === 'none') {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
