@@ -1,7 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap');
 
 :root {
-  /* Colores neón futuristas */
   --neon-blue: #00f5ff;
   --neon-purple: #8a2be2;
   --neon-pink: #ff1493;
@@ -9,15 +12,12 @@
   --dark-bg: #0a0a0a;
   --card-bg: rgba(15, 15, 35, 0.8);
   --text-light: #e0e0e0;
-
   font-family: 'Exo 2', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: dark;
   color: var(--text-light);
   background-color: var(--dark-bg);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
