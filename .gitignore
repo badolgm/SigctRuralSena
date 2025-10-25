@@ -35,3 +35,9 @@ planMaestroV3.pdf
 plan_maestro_v3.7.md
 plan_maestro_v3.md
 *.pdf
+backups/
+diagnostic_reports/
+diagnostic_script_v3.sh
+diagnostics/
+super_diagnostico_sigctrural_v1.1.sh
+super_diagnostico_sigctrural_v1.sh
