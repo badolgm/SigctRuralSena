@@ -1,117 +1,69 @@
-/* ------------------------------------------------------------------- */
-/* CSS: Estilos para la página LabsIndexPage.jsx (Centro de Labs) */
-/* ------------------------------------------------------------------- */
-
-/* FIX: Garantizar que el fondo sea CLARO para eliminar el fondo oscuro global */
+/* ======================================= */
+/* 1. Contenedor de la Página */
+/* ======================================= */
 .labs-index-container {
-    background-color: #f7f9fc; /* Fondo muy claro, tipo "papel digital" */
-    min-height: calc(100vh - 80px); /* Asegura que cubra hasta el footer */
-    padding: 40px 20px 80px 20px;
-    color: #333;
-    transition: background-color 0.3s;
+    padding: 3rem 1.5rem;
+    color: var(--text-primary);
+    text-align: center;
 }
 
-.labs-index-title {
-    font-family: 'Orbitron', monospace;
+.labs-title {
     font-size: 2.5rem;
-    font-weight: 700;
-    color: #1a1a3a;
-    text-align: center;
+    color: var(--neon-green);
+    margin-bottom: 2rem;
+    text-shadow: 0 0 8px rgba(0, 255, 194, 0.6);
+}
+
+/* ======================================= */
+/* 2. Estilo de la Grid de Tarjetas */
+/* ======================================= */
+.lab-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ======================================= */
+/* 3. Estilo de la Tarjeta (Glassmorphism/Futurista) */
+/* ======================================= */
+.lab-card {
+    /* Estilo Glassmorphism (Fondo Oscuro Transparente) */
+    background: rgba(10, 10, 20, 0.9); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    
+    border: 1px solid rgba(0, 212, 255, 0.5); /* Borde Neón Sutil */
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2); /* Resplandor */
+    border-radius: 15px;
+    padding: 25px;
+    text-align: left;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.lab-card-title {
+    color: var(--neon-blue);
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
-.labs-index-subtitle {
-    font-size: 1.1rem;
-    color: #555;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 40px auto;
-}
-
-/* Grid y Tarjetas */
-.labs-grid {
-    display: grid;
-    max-width: 1400px;
-    margin: 0 auto;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.lab-card {
-    display: block; /* Para que Link o <a> funcione como bloque */
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    text-decoration: none;
-    color: inherit;
-    min-height: 180px; /* Altura mínima para uniformidad */
+.lab-card-subtitle {
+    color: var(--neon-pink);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .lab-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-color: #6366f1; /* Resaltar al pasar el mouse */
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px var(--neon-pink), 0 0 40px rgba(255, 0, 230, 0.3); /* Resplandor más fuerte */
 }
 
-.lab-icon {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-}
-
-.lab-title-card {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1a1a3a;
-    margin-bottom: 8px;
-}
-
-.lab-description {
-    font-size: 0.95rem;
-    color: #666;
-}
-
-/* Estilos de Estado (NUEVOS: SENA/IA/Docs) */
-.lab-status {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 6px;
-    color: white;
-    text-transform: uppercase;
-}
-
-.lab-status.status-active {
-    background-color: #28a745; /* Verde para Activo */
-}
-
-.lab-status.status-doc {
-    background-color: #007bff; /* Azul SENA para Documentación */
-}
-
-.lab-status.status-base {
-    background-color: #ffc107; /* Amarillo para Recurso Base (IA) */
-}
-
-.lab-status.status-external {
-    background-color: #6c757d; /* Gris para Recursos Externos */
-}
-
-/* Responsivo */
+/* Responsive */
 @media (max-width: 768px) {
-    .labs-grid {
-        gap: 15px;
-    }
-    .labs-index-title {
-        font-size: 2rem;
-    }
-    .labs-index-container {
-        padding: 30px 15px 70px 15px;
+    .lab-cards-grid {
+        grid-template-columns: 1fr;
     }
 }

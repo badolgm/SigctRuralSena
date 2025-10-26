@@ -1,29 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap');
-
+/* ======================================= */
+/* 1. Definición de Variables Globales */
+/* ======================================= */
 :root {
-  --neon-blue: #00f5ff;
-  --neon-purple: #8a2be2;
-  --neon-pink: #ff1493;
-  --neon-green: #39ff14;
-  --dark-bg: #0a0a0a;
-  --card-bg: rgba(15, 15, 35, 0.8);
-  --text-light: #e0e0e0;
-  font-family: 'Exo 2', sans-serif;
+  /* Paleta Oscura Futurista */
+  --dark-bg: #0A0A0E; /* Fondo muy oscuro, casi negro */
+  --darker-bg: #07070A;
+  
+  /* Colores Neón */
+  --neon-blue: #00D4FF;
+  --neon-pink: #FF00E6;
+  --neon-green: #00FFC2;
+  --text-primary: rgba(255, 255, 255, 0.9);
+
+  font-family: 'Space Mono', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: dark;
-  color: var(--text-light);
-  background-color: var(--dark-bg);
+
+  color: var(--text-primary);
+  background-color: var(--dark-bg); 
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ======================================= */
+/* 2. Reseteo y Base */
+/* ======================================= */
 * {
   margin: 0;
   padding: 0;
@@ -34,10 +38,12 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  overflow-x: hidden;
+  background-color: var(--dark-bg); /* Aseguramos que el body sea oscuro */
+  color: var(--text-primary);
 }
 
 #root {
   width: 100%;
   min-height: 100vh;
 }
+

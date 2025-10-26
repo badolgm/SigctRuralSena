@@ -1,8 +1,8 @@
 ================================================================================
 REPORTE DE ANÁLISIS DEL REPOSITORIO
 ================================================================================
-Fecha: 2025-10-25 10:02:37
-Directorio: /c/Users/IRTELCO/Workspace/importantProjects/SigctRuralSena
+Fecha: 2025-10-25 18:49:40
+Directorio: /d/SigctRuralSena
 
 ================================================================================
 ESTRUCTURA DEL REPOSITORIO
@@ -47,7 +47,7 @@ ESTRUCTURA DEL REPOSITORIO
 ================================================================================
 RESUMEN ESTADÍSTICO
 ================================================================================
-Total de archivos: 142
+Total de archivos: 143
 Total de directorios: 46
 Archivos CSS/SCSS: 13
 Archivos JS/JSX/TS/TSX: 23
@@ -60,28 +60,28 @@ ARCHIVOS CSS/SCSS ENCONTRADOS
 
 📄 ./frontend/src/App.css
    Líneas: 49
-   Tamaño: 4.0K
+   Tamaño: 8.0K
    ✓ Contiene estilos de botones
-   ✓ Usa Flexbox o Grid
-
-📄 ./frontend/src/components/Background/FuturisticBackground.css
-   Líneas: 48
-   Tamaño: 4.0K
-
-📄 ./frontend/src/components/IA/PlantDiseaseClassifier.css
-   Líneas: 167
-   Tamaño: 4.0K
-   ✓ Contiene estilos de botones
-
-📄 ./frontend/src/components/Navigation/TopNav.css
-   Líneas: 191
-   Tamaño: 4.0K
-   ✓ Contiene estilos de navegación
    ✓ Usa Flexbox o Grid
 
 📄 ./frontend/src/index.css
    Líneas: 43
-   Tamaño: 4.0K
+   Tamaño: 8.0K
+
+📄 ./frontend/src/components/Background/FuturisticBackground.css
+   Líneas: 48
+   Tamaño: 8.0K
+
+📄 ./frontend/src/components/IA/PlantDiseaseClassifier.css
+   Líneas: 167
+   Tamaño: 8.0K
+   ✓ Contiene estilos de botones
+
+📄 ./frontend/src/components/Navigation/TopNav.css
+   Líneas: 191
+   Tamaño: 8.0K
+   ✓ Contiene estilos de navegación
+   ✓ Usa Flexbox o Grid
 
 📄 ./frontend/src/pages/Dashboard.css
    Líneas: 673
@@ -98,7 +98,7 @@ ARCHIVOS CSS/SCSS ENCONTRADOS
 
 📄 ./frontend/src/pages/laboratorios/LaboratorioCuantico.css
    Líneas: 45
-   Tamaño: 4.0K
+   Tamaño: 8.0K
    ✓ Contiene estilos de botones
 
 📄 ./frontend/src/pages/laboratorios/LaboratorioEnergias.css
@@ -114,7 +114,7 @@ ARCHIVOS CSS/SCSS ENCONTRADOS
 
 📄 ./frontend/src/pages/laboratorios/LaboratorioSensores.css
    Líneas: 122
-   Tamaño: 4.0K
+   Tamaño: 8.0K
    ✓ Usa Flexbox o Grid
 
 📄 ./frontend/src/pages/laboratorios/LaboratorioSoftware.css
@@ -125,7 +125,7 @@ ARCHIVOS CSS/SCSS ENCONTRADOS
 
 📄 ./frontend/src/pages/laboratorios/LabsIndexPage.css
    Líneas: 117
-   Tamaño: 4.0K
+   Tamaño: 8.0K
    ✓ Contiene estilos de footer
    ✓ Usa Flexbox o Grid
 
@@ -138,9 +138,8 @@ COMPONENTES REACT/JSX/TSX
    ✓ Tiene export default
    ⚠️  CONTIENE <footer> - REVISAR
 
-📄 ./frontend/src/components/Background/FuturisticBackground.jsx
-   Líneas: 57
-   ✓ Tiene export default
+📄 ./frontend/src/main.jsx
+   Líneas: 10
 
 📄 ./frontend/src/components/ErrorBoundary.jsx
    Líneas: 60
@@ -156,6 +155,10 @@ COMPONENTES REACT/JSX/TSX
    ✓ Tiene export default
    ⚠️  CONTIENE <nav> - REVISAR
 
+📄 ./frontend/src/components/Background/FuturisticBackground.jsx
+   Líneas: 57
+   ✓ Tiene export default
+
 📄 ./frontend/src/components/IA/PlantDiseaseClassifier.jsx
    Líneas: 120
    ✓ Tiene export default
@@ -170,9 +173,6 @@ COMPONENTES REACT/JSX/TSX
    ✓ Tiene export default
    ⚠️  CONTIENE <nav> - REVISAR
 
-📄 ./frontend/src/main.jsx
-   Líneas: 10
-
 📄 ./frontend/src/pages/Analytics.jsx
    Líneas: 59
    ✓ Tiene export default
@@ -181,6 +181,14 @@ COMPONENTES REACT/JSX/TSX
    Líneas: 294
    ✓ Tiene export default
    ⚠️  CONTIENE <nav> - REVISAR
+
+📄 ./frontend/src/pages/Login.jsx
+   Líneas: 41
+   ✓ Tiene export default
+
+📄 ./frontend/src/pages/SenaEvidenciasPage.jsx
+   Líneas: 37
+   ✓ Tiene export default
 
 📄 ./frontend/src/pages/laboratorios/LaboratorioAgricultura.jsx
    Líneas: 200
@@ -214,14 +222,6 @@ COMPONENTES REACT/JSX/TSX
    Líneas: 157
    ✓ Tiene export default
 
-📄 ./frontend/src/pages/Login.jsx
-   Líneas: 41
-   ✓ Tiene export default
-
-📄 ./frontend/src/pages/SenaEvidenciasPage.jsx
-   Líneas: 37
-   ✓ Tiene export default
-
 ================================================================================
 ARCHIVOS DE CONFIGURACIÓN
 ================================================================================
@@ -251,10 +251,10 @@ ARCHIVOS DE CONFIGURACIÓN
 ./.gitignore
 
 ✓ README.md:
-./docs/ia_plantvillage/README.md
 ./README.md
+./docs/ia_plantvillage/README.md
 
 ================================================================================
 ARCHIVOS VACÍOS (pueden causar problemas)
 ================================================================================
-⚠️  ./backend/apps/alertas/migrations/__init__.py
+⚠️  ./backend/apps/alertas/__init__.py

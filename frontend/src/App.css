@@ -1,49 +1,48 @@
-.App {
-  text-align: center;
+/* ======================================= */
+/* 1. Estilos del TopNav y Layout Principal */
+/* ======================================= */
+
+/* Aseguramos que el TopNav sea fijo (asumimos que TopNav.css ya lo hace, pero lo reforzamos aquí) */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Aseguramos que esté por encima de todo */
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* CRÍTICO: El contenido principal necesita un margen superior para desplazar el contenido */
+/* Ajusta el 80px a la altura exacta de tu TopNav. */
+.main-content { 
+    margin-top: 80px; 
+    padding: 1.5rem; /* Padding general para el contenido */
+    min-height: calc(100vh - 80px); 
+    width: 100%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  margin-bottom: 0.5em;
+/* ======================================= */
+/* 2. Estilos de Fondo y Globales */
+/* ======================================= */
+
+/* Aseguramos que el fondo del body y el #root sean completamente oscuros */
+body, #root {
+    background-color: var(--dark-bg);
 }
 
-.card {
-  padding: 2em;
+/* Estilos de botones de acción futuristas */
+.btn-neon {
+    background: none;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 0 5px var(--neon-blue);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.info {
-  margin-top: 2em;
-  font-size: 0.8em;
-  opacity: 0.7;
+.btn-neon:hover {
+    background: var(--neon-blue);
+    color: var(--darker-bg);
+    box-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue);
 }

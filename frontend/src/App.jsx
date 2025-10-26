@@ -1,33 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
-// ============================================
-// IMPORTACIONES DE COMPONENTES FUTURISTAS
-// ============================================
-import FuturisticBackground from './components/Background/FuturisticBackground.jsx';
-import TopNav from './components/Navigation/TopNav.jsx';
-import BottomNavigation from './components/Navigation/BottomNavigation.jsx';
-import Header from './components/Header.jsx';
+// Importaciones de Layout y Componentes Comunes
 import Footer from './components/Footer.jsx';
-import ErrorBoundary from './components/ErrorBoundary.jsx';
+import TopNav from './components/Navigation/TopNav.jsx'; // Nuevo TopNav corregido
+import BottomNavigation from './components/Navigation/BottomNavigation.jsx'; 
+import ErrorBoundary from './components/ErrorBoundary.jsx'; 
+import FuturisticBackground from './components/Background/FuturisticBackground.jsx'; // Fondo de estrellas
 
-// ============================================
-// IMPORTACIONES DE PÁGINAS
-// ============================================
+// Importaciones de Páginas (Asegúrate de que estas rutas sean correctas)
+import Dashboard from './pages/Dashboard.jsx'; 
 import Analytics from './pages/Analytics.jsx';
-import LabsIndexPage from './pages/laboratorios/LabsIndexPage.jsx'; 
-import LaboratorioSensores from './pages/laboratorios/LaboratorioSensores.jsx'; 
+import Login from './pages/Login.jsx'; 
+import SenaEvidenciasPage from './pages/SenaEvidenciasPage.jsx'; 
+
+// Páginas de Laboratorio (Asegúrate de que estas importaciones existen)
+import LabsIndexPage from './pages/laboratorios/LabsIndexPage.jsx';
+import LaboratorioSensores from './pages/laboratorios/LaboratorioSensores.jsx';
 import LaboratorioCuantico from './pages/laboratorios/LaboratorioCuantico.jsx';
 import LaboratorioSoftware from './pages/laboratorios/LaboratorioSoftware.jsx';
-import LaboratorioRobotica from './pages/laboratorios/LaboratorioRobotica.jsx'; 
+import LaboratorioRobotica from './pages/laboratorios/LaboratorioRobotica.jsx';
 import LaboratorioAgricultura from './pages/laboratorios/LaboratorioAgricultura.jsx';
 import LaboratorioEnergias from './pages/laboratorios/LaboratorioEnergias.jsx';
 import LaboratorioOpenSource from './pages/laboratorios/LaboratorioOpenSource.jsx';
-import SenaEvidenciasPage from './pages/SenaEvidenciasPage.jsx'; 
 
-// ============================================
-// COMPONENTE SCROLL TO TOP
-// ============================================
+// Componente Wrapper para manejar el scroll al cambiar de página
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -36,117 +33,67 @@ const ScrollToTop = () => {
   return null;
 };
 
-// ============================================
-// COMPONENTE PRINCIPAL DE CONTENIDO
-// ============================================
+// Componente principal de la aplicación
 const AppContent = () => {
-  const [loading, setLoading] = useState(false);
   const location = useLocation();
-  
-  // Rutas donde se muestra la navegación inferior
-  const showBottomNav = [
-    '/', 
-    '/laboratorios', 
-    '/analytics', 
-    '/cursos', 
-    '/docs/evidencias',
-    '/laboratorios/sensores',
-    '/laboratorios/software'
-  ].includes(location.pathname); 
 
-  // Laboratorios de inmersión total (sin header/footer)
+  // Función para determinar si estamos en un laboratorio de inmersión total (oculta TopNav/Footer/BottomNav)
   const isImmersiveLab = [
     '/laboratorios/cuantico',
-    '/docs/evidencias'
+    '/laboratorios/software', // El lab de software a veces es inmersivo
   ].includes(location.pathname);
 
+  // Determinar si mostrar el TopNav estándar (No se muestra en Login ni en Immersivos)
+  const showTopNav = !isImmersiveLab && location.pathname !== '/login'; 
+  
+  // Condición para mostrar la navegación inferior
+  const showBottomNav = showTopNav; // Si muestra TopNav, muestra BottomNav (regla simple)
+
   return (
-    <div className="App flex flex-col min-h-screen bg-gray-950 text-gray-100">
+    <>
       <ScrollToTop />
-      
-      {/* Header condicional */}
-      {!isImmersiveLab && <Header />}
-      
-      {/* Contenido principal con padding adaptativo */}
-      <main className={`flex-grow ${!isImmersiveLab ? 'pt-[72px] pb-16' : 'p-0'}`}>
-        {loading && (
-          <div className="loading-overlay flex items-center justify-center">
-            <div className="text-cyan-400 text-2xl font-bold animate-pulse">
-              ⚡ Cargando...
-            </div>
-          </div>
-        )}
-        
+      <FuturisticBackground /> {/* <--- EL FONDO DE ESTRELLAS VA DETRÁS DE TODO */}
+
+      {showTopNav && <TopNav />} {/* <--- SOLO USAMOS EL TOPNAV CORREGIDO */}
+
+      {/* Contenedor principal: le damos margen para el TopNav fijo (ver App.css) */}
+      <div className="main-content">
         <ErrorBoundary>
           <Routes>
-            {/* Rutas principales */}
-            <Route path="/" element={<Analytics />} /> 
+            {/* RUTAS DE ACCESO PÚBLICO */}
+            <Route path="/login" element={<Login />} />
+            
+            {/* RUTAS PRINCIPALES (PROTEGIDAS) */}
+            <Route path="/" element={<Dashboard />} />
             <Route path="/analytics" element={<Analytics />} />
+            <Route path="/evidencias" element={<SenaEvidenciasPage />} /> 
 
-            {/* Rutas de Laboratorios */}
+            {/* RUTAS DE LABORATORIOS */}
             <Route path="/laboratorios" element={<LabsIndexPage />} />
             <Route path="/laboratorios/sensores" element={<LaboratorioSensores />} />
-            <Route path="/laboratorios/cuantico" element={<LaboratorioCuantico />} />
             <Route path="/laboratorios/software" element={<LaboratorioSoftware />} />
+            <Route path="/laboratorios/cuantico" element={<LaboratorioCuantico />} />
             <Route path="/laboratorios/robotica" element={<LaboratorioRobotica />} />
             <Route path="/laboratorios/agricultura" element={<LaboratorioAgricultura />} />
             <Route path="/laboratorios/energias" element={<LaboratorioEnergias />} />
             <Route path="/laboratorios/opensource" element={<LaboratorioOpenSource />} />
             
-            {/* Documentación SENA */}
-            <Route path="/docs/evidencias" element={<SenaEvidenciasPage />} />
-            <Route path="/evidencias" element={<SenaEvidenciasPage />} />
-            <Route path="/documentacion" element={
-              <div className="container mx-auto p-8">
-                <h1 className="text-4xl font-bold text-cyan-400 mb-4">📚 Documentación del Proyecto</h1>
-                <p className="text-gray-300">Sistema de documentación técnica en desarrollo.</p>
-              </div>
-            } />
-
-            {/* Cursos (placeholder) */}
-            <Route path="/cursos" element={
-              <div className="container mx-auto p-8">
-                <h1 className="text-4xl font-bold text-green-400 mb-4">📚 Módulo de Cursos</h1>
-                <p className="text-gray-300">Sistema de gestión de cursos en desarrollo.</p>
-              </div>
-            } />
-            
-            {/* 404 Not Found */}
-            <Route path="*" element={
-              <div className="container mx-auto p-8 text-center">
-                <h1 className="text-6xl font-bold text-red-500 mb-4">404</h1>
-                <p className="text-2xl text-gray-300">Página No Encontrada</p>
-              </div>
-            } />
+            {/* RUTA CATCH-ALL/404 */}
+            <Route path="*" element={<div>404 Not Found</div>} /> 
           </Routes>
         </ErrorBoundary>
-      </main>
-      
-      {/* Footer condicional */}
+      </div>
+
       {!isImmersiveLab && <Footer />}
-      
-      {/* Navegación inferior condicional */}
-      {showBottomNav && !isImmersiveLab && <BottomNavigation />}
-    </div>
+      {showBottomNav && <BottomNavigation />}
+    </>
   );
 };
 
-// ============================================
-// COMPONENTE APP PRINCIPAL CON ROUTER
-// ============================================
 const App = () => (
-  <ErrorBoundary>
-    <Router>
-      {/* Fondo futurista global */}
-      <FuturisticBackground />
-      
-      {/* Navegación superior global */}
-      <TopNav />
-      
-      {/* Contenido de la aplicación */}
-      <AppContent />
-    </Router>
-  </ErrorBoundary>
+  <Router>
+    <AppContent />
+  </Router>
 );
 
 export default App;
