@@ -41,3 +41,21 @@ diagnostic_script_v3.sh
 diagnostics/
 super_diagnostico_sigctrural_v1.1.sh
 super_diagnostico_sigctrural_v1.sh
+
+# --- Adiciones para ignorar archivos en la raíz del proyecto ---
+
+# Scripts de shell y herramientas de análisis
+diagnostico_avanzado.sh*
+diagnostico_proyecto.sh*
+repo_analyzer_bash.sh*
+super_diagnostico_sigctrural_v2.0.sh*
+sync_solution_script.sh*
+transform_v2.sh*
+
+# Archivos de Reportes y Resultados de Análisis
+repository_analysis.txt
+TRANSFORMATION_REPORT_*.md
+
+# Archivos de documentación con nombres especiales
+*PLAN DE TRANSFORMACIÓN V2.0 - SIGC&T-RURAL.md
+*PLAN_MAESTRO_V3.0_ADSO.md
