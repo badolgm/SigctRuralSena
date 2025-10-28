@@ -64,9 +64,15 @@ const AppContent = () => {
             <Route path="/login" element={<Login />} />
             
             {/* RUTAS PRINCIPALES (PROTEGIDAS) */}
+            {/* RUTA DE DASHBOARD/INICIO: Soporta tanto '/' como '/dashboard' para la navegación. */}
             <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} /> 
+
             <Route path="/analytics" element={<Analytics />} />
+            
+            {/* RUTA DE EVIDENCIAS: Soporta tanto '/evidencias' como '/docs/evidencias' para la navegación. */}
             <Route path="/evidencias" element={<SenaEvidenciasPage />} /> 
+            <Route path="/docs/evidencias" element={<SenaEvidenciasPage />} /> 
 
             {/* RUTAS DE LABORATORIOS */}
             <Route path="/laboratorios" element={<LabsIndexPage />} />
@@ -82,7 +88,7 @@ const AppContent = () => {
             <Route path="*" element={<div>404 Not Found</div>} /> 
           </Routes>
         </ErrorBoundary>
-      </div>
+      </div> {/* <--- CIERRE DEL div.main-content: ESTA ERA LA ETIQUETA FALTANTE */}
 
       {!isImmersiveLab && <Footer />}
       {showBottomNav && <BottomNavigation />}
